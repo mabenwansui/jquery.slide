@@ -1,4 +1,5 @@
 ;(function( $, window ){
+  
   var pluginName = "slide",
       classname  = "slide-js",
       document = window.document,
@@ -142,7 +143,6 @@
   };
 
   Plugin.prototype.prev = function(){
-    console.log("111");
     var i = this._index==0 ? this._total-1 : this._index-1;
     this.options.tabtag.eq(i).trigger("click");
   };
