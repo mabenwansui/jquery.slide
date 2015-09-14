@@ -1,7 +1,7 @@
 # jquery.slide
 轮播插件
 
-##使用方式
+####使用方式
     $('.tab').slide({
       tabtag: "auto",
       conbox: $(".panes"),
