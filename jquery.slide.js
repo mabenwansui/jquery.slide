@@ -1,5 +1,4 @@
 ;(function( $, window ){
-  
   var pluginName = "slide",
       classname  = "slide-js",
       document = window.document,
