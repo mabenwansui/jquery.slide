@@ -24,6 +24,7 @@
     this._total  = this.options.contag.length;
     this._index  = 0;
     this._html   = this.element.html();
+    this._direction = null;
     this.init();
   };
 
@@ -66,12 +67,12 @@
       display:"block"
     }).first().clone(true).appendTo(wrap);
     conbox.on("change"+pluginName, function(event, index){
-      if(that._last==that._total-1 && that._index==0){
+      if(that._direction=='next' && that._index==0){
         wrap.stop().animate({"margin-left":-that._total*colsw}, that.options.speed, function(){
           wrap.css("margin-left",0);
           that.options.executed && that.options.executed.call(that);
         });
-      }else if(that._index==that._total-1 && that._last==0){
+      }else if(that._direction=='prev' && that._last==0){
         wrap.stop().css("margin-left",-that._total*colsw).animate({"margin-left":-index*colsw}, that.options.speed, function(){
           that.options.executed && that.options.executed.call(that);
         });
@@ -143,11 +144,13 @@
   };
 
   Plugin.prototype.prev = function(){
+    this._direction = 'prev';
     var i = this._index==0 ? this._total-1 : this._index-1;
     this.options.tabtag.eq(i).trigger("click");
   };
 
   Plugin.prototype.next = function(){
+    this._direction = 'next';
     var i = this._index>=this._total-1 ? 0 : this._index+1;
     this.options.tabtag.eq(i).trigger("click");
   };  

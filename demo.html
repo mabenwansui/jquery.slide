@@ -30,6 +30,7 @@
   <div class="panes">
     <div class="red">12345678910111213141516171819202122232425</div>
     <div class="green">12345678910111213141516171819202122232425</div>
+    <div class="blue">12345678910111213141516171819202122232425</div>
   </div>
 </div>
 <script>
@@ -37,8 +38,8 @@
 $('.tab').slide({
   tabtag: "auto",
   conbox: $(".panes"),
-  effect: "fade",
-  auto: 5000,
+  effect: "scrollx",
+  auto: false,
   act: "hover",
   contag: $(".panes>div")
 });
